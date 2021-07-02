@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-conversao-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-conversao
+  template: 
+    metadata:
+      labels:
+        app: api-conversao
+    spec:
+      containers:
+        - name: api-conversao
+          image: pfelicissimo/api-conversao:v1.0
+          ports:
+            - containerPort: 80
